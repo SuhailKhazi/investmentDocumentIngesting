@@ -1,0 +1,16 @@
+flowchart LR
+  A[User Upload] --> B[API Gateway / FastAPI]
+  B --> C[MinIO Storage]
+  B --> D[Redis Queue]
+  D --> E[Worker: Preprocess + OCR]
+  E --> F[Classifier]
+  F --> G[Extractor + Normalizer]
+  G --> H[Validator]
+  H --> I[Postgres DB]
+  H --> J[Search Index (optional)]
+  I --> K[REST API / UI]
+  J --> K
+  K --> L[Human Review UI]
+  subgraph Observability
+    M[Logs] & N[Metrics] & O[Tracing]
+  end
