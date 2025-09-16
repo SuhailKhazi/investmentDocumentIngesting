@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+redis
+rq
+psycopg2-binary
+python-multipart
